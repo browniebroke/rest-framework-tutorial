@@ -17,3 +17,6 @@ dependencies = [
     "pyyaml==6.0.3",
     "whitenoise==6.12.0",
 ]
+
+[tool.uv.sources]
+djangorestframework = { url = "https://github.com/Sebastianhayashi/django-rest-framework/archive/codex/fix-6234.zip" }

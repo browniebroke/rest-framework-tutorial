@@ -49,14 +49,14 @@ wheels = [
 [[package]]
 name = "djangorestframework"
 version = "3.17.0"
-source = { registry = "https://pypi.org/simple" }
+source = { url = "https://github.com/Sebastianhayashi/django-rest-framework/archive/codex/fix-6234.zip" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b1/46/615ad5425c7b941e6fd3f382d25b1aca680022200d8e5b87bfc665c4425d/djangorestframework-3.17.0.tar.gz", hash = "sha256:456fd992a33f9e64c9d0f47e85d9787db0efb44f894c1e513315b5e74765bd4c", size = 905671, upload-time = "2026-03-18T20:33:42.861Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/5f/ee/01dfe0e712d37007a4417bf7ba518a9e6830d4de009ed4bfdfebd45b99cf/djangorestframework-3.17.0-py3-none-any.whl", hash = "sha256:d84fe85f30b7ac6e8c0076ce9ff635e4eaedca5912f8d7d2926ce448c08533ba", size = 898818, upload-time = "2026-03-18T20:33:41.335Z" },
-]
+sdist = { hash = "sha256:b0097a58a66f8029f63ef8f4042bfc7a97ad6eb45fc3a8f63bec58790e6c5569" }
+
+[package.metadata]
+requires-dist = [{ name = "django", specifier = ">=4.2" }]
 
 [[package]]
 name = "drf-spectacular"
@@ -238,7 +238,7 @@ dependencies = [
 requires-dist = [
     { name = "dj-database-url", specifier = "==3.1.2" },
     { name = "django", specifier = "==5.2.12" },
-    { name = "djangorestframework", specifier = "==3.17.0" },
+    { name = "djangorestframework", url = "https://github.com/Sebastianhayashi/django-rest-framework/archive/codex/fix-6234.zip" },
     { name = "drf-spectacular", specifier = "==0.29.0" },
     { name = "gunicorn", specifier = "==25.1.0" },
     { name = "inflection", specifier = "==0.5.1" },
