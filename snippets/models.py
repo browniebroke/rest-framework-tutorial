@@ -9,6 +9,15 @@ LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
 STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 
+class Profile(models.Model):
+    """Model to reproduce issue #6234: DictField HTML parsing bug."""
+    name = models.CharField(max_length=100)
+    metadata = models.JSONField(default=dict, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Snippet(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True, default='')
