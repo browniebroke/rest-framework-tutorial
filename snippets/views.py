@@ -2,10 +2,20 @@ from django.contrib.auth.models import User
 from rest_framework import permissions, renderers, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from snippets.models import Snippet
 from snippets.permissions import IsOwnerOrReadOnly
-from snippets.serializers import SnippetSerializer, UserSerializer
+from snippets.serializers import CommunitySerializer, SnippetSerializer, UserSerializer
+
+
+class CommunityView(APIView):
+    """Minimal view to reproduce ListField partial update bug (#6202)."""
+
+    def patch(self, request, pk=None):
+        serializer = CommunitySerializer(data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.validated_data)
 
 
 class SnippetViewSet(viewsets.ModelViewSet):

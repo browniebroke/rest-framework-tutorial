@@ -1,7 +1,17 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from rest_framework.fields import CharField, ListField
 
 from snippets.models import Snippet
+
+
+class CommunitySerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=100)
+    colors = ListField(
+        allow_null=True,
+        child=CharField(max_length=7),
+        required=False,
+    )
 
 
 class SnippetSerializer(serializers.HyperlinkedModelSerializer):
